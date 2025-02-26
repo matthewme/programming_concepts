@@ -54,8 +54,8 @@ def test_child_initialization(child: Child):
     assert child.age == 3
 
 
-# Test case for the 'speak' method w/ inheritence
-def test_child_speak_method_inheritence(child: Child):
+# Test case for the 'speak' method w/ inheritance
+def test_child_speak_method_inheritance(child: Child):
     # Test speak method is inherited.
     assert child.speak("Hello!") == "Kid says Hello!"
     assert child.speak("Goodbye") == "Kid says Goodbye"
