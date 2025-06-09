@@ -51,7 +51,7 @@ TODO: Add project description
 
 ## Features
 
-- **Type Safety**: Python 3.12 type annotations checked with `pyright`.
+- **Type Safety**: Python 3.11 type annotations checked with `pyright`.
 - **Testing**: Comprehensive unit tests using `pytest`.
 - **Code Quality**: Linting with `flake8` and formatting with `black`.
 - **Environment Management**: Virtual environments with `pyenv`.
@@ -69,13 +69,13 @@ Follow these steps to configure your development environment for the project:
 1. Install Python 3.12 using `pyenv`:
 
    ```bash
-   pyenv install 3.12.0
+   pyenv install 3.11
    ```
 
 1. Create a virtual environment for the project:
 
    ```bash
-   pyenv virtualenv 3.12.0 prog-concepts-env
+   pyenv virtualenv 3.11 prog-concepts-env
    ```
 
 1. Set the virtual environment as the default for the project directory:
@@ -101,14 +101,10 @@ Follow these steps to configure your development environment for the project:
    pip install -r requirements.txt
    ```
 
-   If you have problems with pip certificates, run this command
+1. Install the project packages, run this command:
 
    ```bash
-   pip config set global.trusted-host \
-       "pypi.org files.pythonhosted.org pypi.python.org" \
-       --trusted-host=pypi.python.org \
-       --trusted-host=pypi.org \
-       --trusted-host=files.pythonhosted.org
+   pip install -e .
    ```
 
 1. Install pre-commit hooks
@@ -166,7 +162,7 @@ The following development tools are installed automatically from `requirements.t
 
 ```json
 {
-  "python.pythonPath": "~/.pyenv/versions/validator-env/bin/python",
+  "python.pythonPath": "~/.pyenv/versions/pro-concepts-env/bin/python",
   "python.formatting.provider": "black",
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
@@ -180,25 +176,12 @@ The following development tools are installed automatically from `requirements.t
 ## Development Workflow
 
 ### Run all Linting and Testing
-
-Run all including quality checks.
-
-```bash
-./dev_validate.sh
-```
-
-### Pre-Commit Hooks
-
-This project uses Pre-Commit to automatically run quality checks on each `git
-commit`. If you don’t see output from Black, Flake8, Pyright, and Pytest during
-a commit, check the Development Environment section for setup instructions.
-
 ### Test Watch Mode
 
 Run tests in watch mode (tests will auto-run on every file change).
 
 ```bash
-ptw
+ptw .
 ```
 
 ### Code Formatting
@@ -231,29 +214,6 @@ Use `pytest` to execute unit tests:
 
 ```bash
 pytest
-```
-
-By default, only the faster unit tests are run. Slower tests, such as
-end-to-end (E2E) tests, are excluded. To include these slower tests in your
-test run, use the following command:
-
-```bash
-pytest -m slow
-```
-
-To mark a test as slow, use the `@pytest.mark.slow` decorator in your test
-file. This allows you to selectively include or exclude slow tests during test
-execution.
-
-Example:
-
-```python
-from pytest import mark
-
-@mark.slow
-def test_e2e_slow_running():
-    """Test a slow running e2e process"""
-    # test implementation here
 ```
 
 ---
@@ -298,14 +258,14 @@ development dependencies.
    Use `pip` to install a new dependency:
 
    ```bash
-    pip install package_name
+   pip install package_name
    ```
 
 2. **Update `requirements.txt`**:
    After installing a new package, update the `requirements.txt` file:
 
    ```bash
-    pip freeze > requirements.txt
+   pip freeze > requirements.txt
    ```
 
 3. **Commit Changes**:
