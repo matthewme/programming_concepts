@@ -66,8 +66,8 @@ class Duck(ABC):
 
     def __init__(self):
         # These will be assigned concrete behavior objects
-        self.fly_behavior: FlyBehavior = None
-        self.quack_behavior: QuackBehavior = None
+        self.fly_behavior: FlyBehavior
+        self.quack_behavior: QuackBehavior
 
     def set_fly_behavior(self, fb: FlyBehavior):
         """Sets the duck's flying behavior."""
