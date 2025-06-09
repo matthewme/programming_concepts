@@ -162,7 +162,7 @@ The following development tools are installed automatically from `requirements.t
 
 ```json
 {
-  "python.pythonPath": "~/.pyenv/versions/pro-concepts-env/bin/python",
+  "python.pythonPath": "~/.pyenv/versions/prog-concepts-env/bin/python",
   "python.formatting.provider": "black",
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
